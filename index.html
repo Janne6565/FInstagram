@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FInstagram</title>
+</head>
+<body>
+    <div id="app">
+        <section class="loggedIn" v-if="loggedIn">
+            <div class="posts">
+                <div class="post" v-for="post in postsForMe">
+                    <a :href="'./user/?id=' + post.UserId" class="author">@{{post.Username}}</a>
+                    <img v-if="post.Type == 'img'" :src="post.MediaLink" alt="" class="imagePost">
+                    <video v-if="post.Type == 'video'" :src="post.MediaLink" alt="" class="imagePost" controls="true"></video>
+                    <div class="imagePost" v-if="post.Type== 'text'">{{post.Text}}</div>
+                    <div class="description">
+                        <a :href="'./user/?id=' + post.UserId">@{{post.Username}}</a>:
+                        {{post.PostBio}}
+                    </div>
+                </div>
+            </div>
+            <div class="rightSide">
+                <div class="storys">
+                    <a v-for="story in storysForMe" :href="'./story/?id=' + story.StoryId" class="story">
+                        {{story.Username.split('')[0]}}
+                    </a>
+                </div>
+                <div class="search">
+                    <input type="text" class="inputSearch" placeholder="Search..." v-model="searchQuery">
+                    <div class="results">
+                        <h2 class="resHeader">Posts</h2>
+                        <div class="listPosts">
+                            <a class="postSearch" v-for="postSearched in searchedPosts" :href="'./post/?id=' + postSearched.PostId">
+                                <img v-if="postSearched.Type == 'img'" :src="postSearched.MediaLink" alt="" class="previewSearchPost">
+                                <video v-if="postSearched.Type == 'video'" :src="postSearched.MediaLink" alt="" class="previewSearchPost"></video>
+                                <div class="previewSearchPost" v-if="postSearched.Type == 'text'">{{postSearched.Text}}</div>
+                                <div :href="'./user/?id=' + postSearched.UserId">@{{postSearched.Username}}</div>
+                            </a>
+                        </div>
+                        <h2 class="resHeader">Users</h2>
+                        <div class="listUsers">
+                            <a v-for="user in searchedUsers" :href="'./user/?id=' + user.ID" class="user">
+                                <div href="" class="logo">
+                                    {{user.Username.split('')[0]}}
+                                </div>
+                                {{user.Username}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="login" v-else>
+            <h1 class="headerLogin">FInstagram</h1>
+            <div class="bot">
+                <div v-on:submit="loginUser" class="formLogin">
+                    <h2>Login</h2>
+                    <input type="email" class="inputLogin" placeholder="Email" v-model="loginData.email">
+                    <input type="password" class="inputLogin" placeholder="Password" v-model="loginData.password">
+                    <input type="submit" v-on:click="loginUser" id="Submit" class="inputSubmit">
+                </div>
+                <div v-on:submit="registerUser" class="formLogin">
+                    <h2>Register</h2>
+                    <input type="text" class="inputRegister" placeholder="Nachname" v-model="registerData.nachname">
+                    <input type="text" class="inputRegister" placeholder="Vorname" v-model="registerData.vorname">
+                    <input type="email" class="inputRegister" placeholder="Email" v-model="registerData.email">
+                    <input type="password" class="inputRegister" placeholder="Password" v-model="registerData.password">
+                    <input type="date" class="inputRegister" placeholder="Geburtsdatum" v-model="registerData.geburtsdatum">
+                    <input type="text" class="inputRegister" placeholder="Username" v-model="registerData.username">
+                    <input type="text" class="inputRegister" placeholder="Bio" v-model="registerData.bio">
+                    <input type="submit" v-on:click="registerUser" id="Submit" class="inputSubmit">
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

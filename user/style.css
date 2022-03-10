@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+body {
+    font-family: 'Sen';
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex; 
+    justify-content: center;
+}
+
+.content {
+    width: 60%;
+    margin-top: 5vh;
+    min-height: 95vh;
+    display: flex;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    padding: 50px;
+    flex-direction: column;
+}
+
+.top {
+    min-height: 10vh;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.top > .logo {
+    background-color: #949494;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    font-size: 75px;
+    text-align: center;
+}
+
+.top > .username {
+    font-size: 35px;
+    padding: 20px;
+    color: #4B4B4B;
+}
+
+.content {
+    font-size: 25px;
+}
+
+.contents {
+    margin-top: 40px;
+    background: #F2F2F2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    min-height: 65vh;
+}
+
+.post {
+}
+
+.previewSearchPost {
+    border-radius: 7px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: 250px;
+    height: auto;
+    margin: 10px;
+}
+
+.bio {
+    font-size: 20px;
+}

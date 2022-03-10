@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.loggedIn {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.posts {
+    display: flex;
+    width: 40%;
+    height: 80vh;
+    margin: auto; 
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.posts > .post {
+    display: flex; 
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Sen';
+    margin-bottom: 20px;
+}
+
+.posts > .post > .author {
+    width: 100%;
+}
+
+.posts > .post > .imagePost {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+    border-radius: 7px;
+}
+
+.posts > .post > .description {
+    width: 100%;
+
+}
+
+
+.rightSide {
+    display: flex;
+    width: 40%;
+    height: 80vh;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.storys {
+    background-color: darkgray;
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .8); 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 5px;
+    gap: 20px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.storys > .story {
+    border-radius: 50%;
+    background: linear-gradient(131.31deg, #8ab7fa -1.16%, rgba(70, 109, 168, 0.4) 102.6%);
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    font-size: 75px;
+    align-items: center;
+    justify-content: center;
+    color: lightgray;
+    box-shadow: 1px 1px 5px rgba(4, 4, 85, 0.7);
+    font-family: fantasy;
+    transition: all ease .3s;
+}
+
+.storys > .story:hover {
+    box-shadow: 0px 0px 15px rgba(4, 4, 85, 0.9);
+}
+
+.search {
+    width: 90%;
+    height: 30vw;
+    margin: auto;
+    border-radius: 7px;
+    background: #E4E4E4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex; 
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: center;
+}
+
+.search > .inputSearch {
+    width: 90%;
+    height: 50px;
+    border-radius: 11px;
+    border: none;
+    font-size: 25px;
+    align-items: center;
+    padding: auto;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: 'Sen', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: all ease .3s;
+}
+
+.search > .inputSearch::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: 'Sen', sans-serif;
+    font-family: Sen;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+}
+
+.search > .inputSearch:active {
+    outline: none;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.search > .inputSearch:focus {
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.search > .results {
+    width: 90%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, .7);
+    margin-bottom: 20px;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-bottom: 10px;  
+    overflow-y: scroll;
+}
+
+.search > .results > .resHeader{
+    font-family: 'Sen';
+    margin: 20px;
+}
+
+.search > .results > .listPosts {
+    display: flex; 
+    font-family: 'Sen';
+    width: 90%;
+    overflow: scroll;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+}
+
+.search > .results > .listPosts > .postSearch {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 20px;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 7px;
+    padding: 5px;
+    box-shadow: 3px 3px 5px gray;
+    transition: all ease .2s;
+    color: rgb(105, 105, 105);
+    min-width: 150px;
+    max-width: 150px;
+    align-items: center;
+}
+
+.search > .results > .listPosts > .postSearch:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
+}
+
+.search > .results > .listPosts > .postSearch > .previewSearchPost {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    margin: 5px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 6px black;
+}
+
+.search > .results > .listPosts > .postSearch > a {
+    color: rgb(105, 105, 105);
+}
+
+.search > .results > .listUsers {
+    display: flex;
+    font-family: 'Sen';
+    font-weight: bolder;
+    width: 90%;
+    overflow: scroll;
+    overflow-y: visible;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.search > .results > .listUsers > .user {
+    display: flex; 
+    flex-direction: column;
+    text-align: center;
+    margin-left: 20px;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 7px;
+    padding: 5px; 
+    box-shadow: 3px 3px 5px gray;
+    transition: all ease .2s;
+    min-width: 150px;
+    max-width: 150px;
+    align-items: center;
+    color: rgb(105, 105, 105);
+}
+
+.search > .results > .listUsers > .user > .logo {
+    background-color: rgba(88, 209, 169, 0.6);
+    width: 100px;
+    height: 100px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px rgba(25, 131, 95, 0.5);
+    margin-bottom: 10px;
+    font-size: 60px;
+    color: beige;
+}
+
+.search > .results > .listUsers > .user:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
+}
+
+
+/* Not Logged In */
+
+.login {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Sen';
+}
+
+.login > .headerLogin {
+    width: 100%;
+    height: 10vh;
+    font-size: 105px;
+    text-align: center;
+}
+
+.login > .bot {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.login > .bot > .formLogin {
+    height: 90vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 10%;
+}
+
+.login > .bot > .formLogin > input {
+    width: 60%;
+    height: 7%;
+    border: none;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    transition: all ease .3s;
+    font-size: 25px;
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.7);
+} 
+
+.login > .bot > .formLogin > input:active {
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.55);
+}
+
+.login > .bot > .formLogin > input:focus {
+    outline: none;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.45);
+}
+
+.login > .bot > .formLogin > h2 {
+    font-size: 45px;
+}
